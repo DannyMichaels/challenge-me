@@ -11,6 +11,7 @@ import { useEffect } from 'react';
 import { verifyUser } from './services/auth';
 import NotFound from './screens/error/NotFound';
 import UserDetail from './screens/UserScreens/UserDetail/UserDetail';
+import About from './screens/main/About/About';
 
 function App() {
   const [, dispatch] = useStateValue();
@@ -31,6 +32,7 @@ function App() {
         <Route path="/create-contest" component={ContestCreate} />
         <Route path="/contests/:id" component={ContestPage} />
         <Route path="/users/:id" component={UserDetail} />
+        <Route exact path="/about" component={About} />
         <Route exact path="/" component={Home} />
         <Route component={NotFound} />
       </Switch>
