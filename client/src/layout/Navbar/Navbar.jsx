@@ -18,8 +18,6 @@ function Navbar() {
     history.push('/');
   };
 
-  // let location = useLocation();
-
   const { pathname } = useLocation();
 
   return (

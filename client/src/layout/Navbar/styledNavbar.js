@@ -20,18 +20,6 @@ let Nav = styled.nav`
     align-items: center;
   }
 
-  /* li.nav-block.home {
-    background: ${(props) => (props.location.pathname.match(/^\/$/) ? '#FFB738' : '#36B7FF')};
-  }
-
-  li.nav-block.create {
-    background: ${(props) => (props.location.pathname.match(/^\/create-contest/) ? '#FFB738' : '#36B7FF')};
-  }
-
-  li.nav-block.about {
-    background: ${(props) => (props.location.pathname.match(/^\/about/) ? '#FFB738' : '#36B7FF')};
-  } */
-
   li.nav-block.active {
     background: #ffb738;
   }
