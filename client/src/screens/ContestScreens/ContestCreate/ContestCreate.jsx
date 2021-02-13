@@ -87,7 +87,7 @@ function ContestCreate() {
         let date = new Date(value);
         value = date.toISOString();
       }
-      // value isn't giving us the timezoneOffset, we'll take care of it in lines 81.
+      // value isn't giving us the timezoneOffset, we'll take care of it in lines 97.
     } else if (name === 'ending_date' && value) {
       let date = new Date(value);
       // we're setting minutes to 0, hours to 0 and milliseconds to 0
