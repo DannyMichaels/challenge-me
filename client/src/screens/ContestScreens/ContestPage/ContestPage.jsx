@@ -63,20 +63,7 @@ function ContestPage() {
           // all the votes in the app
           const voteData = await getAllVotes();
           let submissionVotes = new Map();
-          // filter votes which are only in this contest
 
-          //activeSubmissions.map(ac => ac.id).includes(v.submission_id)
-          // create an array of submission ids
-          //check if vote.submissionid is included in array of submission ids
-          // so we get all the vots for the contest
-          // loop through them and create the map of submission id and  its vote count
-
-          // this if condition is to avoid an error "Reduce of empty array with no initial value"
-          // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/size
-          // We want to loop through the voteData and create an object with the keys as the submission id and the vote count as the number of votes
-
-          /*eslint-disable */
-          //disabling eslint for line 87 warning
           voteData
             .filter((v) =>
               activeSubmissions.map((ac) => ac.id).includes(v?.submission_id),
@@ -89,24 +76,18 @@ function ContestPage() {
                 submissionVotes.set(vote.submission_id, 1);
               }
             });
-          // re-enabling es-lint
-          /*eslint-enable */
-          // find the highest voted submission
-          // This handles the edge case where there are entries but there are no votes for the entires
+
           if (submissionVotes.size === 0) {
-            // just pick the first submission
             setWinnerSubmission(activeSubmissions[0]);
             return;
           }
+      
           let highestVoted = [...submissionVotes.entries()]?.reduce(
-            // we are sorting it based on the valuew hich is the highest.
             (previousVote, currentVote) =>
               currentVote[1] > previousVote[1] ? currentVote : previousVote,
-            //submissionid is null, no votes.
             [null, 0],
           );
-          //highestvoted[0] = submissionid
-          // highestVoted[1] = vote count for that submission
+      
           const winner = activeSubmissions.find(
             (sub) => sub.id === highestVoted[0],
           );
